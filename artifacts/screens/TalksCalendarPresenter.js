@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+// import { connect } from 'react-redux'
+// import { bindActionCreators } from 'redux'
 import * as TalkAPI from './../api/talk';
 import TalkView from './../components/talks/TalkView';
 import { NavigationBar, EmptyView, Loader } from '../components/reusable';
@@ -9,21 +11,23 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     }
 });
-export class TalksCalendarPresenter extends React.Component {
+export default class TalksCalendarPresenter extends React.Component {
     constructor(props) {
         super(props);
         this.title = 'Lunch and Learn';
         this.state = {
             isLoading: true,
             isEmpty: false,
-            talks: new Array()
+            talks: []
         };
     }
     componentWillMount() {
         TalkAPI.fetchTalks()
-            .then(response => this.setState({
-            isEmpty: response.length !== 0,
+            .then(response => 
+        // console.log(response)
+        this.setState({
             isLoading: false,
+            isEmpty: response.length !== 0,
             talks: response
         }));
     }
@@ -42,4 +46,10 @@ export class TalksCalendarPresenter extends React.Component {
             this.renderContent()));
     }
 }
+// const mapStateToProps = (state) => ({
+//   isLoading: state.talks.isLoading,
+//   isEmpty: state.talks.data.length !== 0,
+//   talks: state.talks.data
+// })
+// export default connect(mapStateToProps)(TalkView) 
 //# sourceMappingURL=TalksCalendarPresenter.js.map

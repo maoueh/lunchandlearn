@@ -1,7 +1,9 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
+// import { connect } from 'react-redux'
+// import { bindActionCreators } from 'redux'
 import * as TalkAPI from './../api/talk'
-import Talk from './../models/fakeTalk'
+import Talk from './../models/talk'
 import TalkView from './../components/talks/TalkView'
 import { NavigationBar, EmptyView, Loader } from '../components/reusable'
 
@@ -12,7 +14,7 @@ interface Props extends React.Props<View> {
 interface State {
   isLoading: boolean,
   isEmpty: boolean,
-  talks: Array<Talk>
+  talks: Talk[]
 }
 
 const styles = StyleSheet.create({
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export class TalksCalendarPresenter extends React.Component<Props, State> {
+export default class TalksCalendarPresenter extends React.Component<Props, State> {
 
   title = 'Lunch and Learn'
 
@@ -31,17 +33,20 @@ export class TalksCalendarPresenter extends React.Component<Props, State> {
     this.state = {
       isLoading: true,
       isEmpty: false,
-      talks: new Array<Talk>()
+      talks: []
     }
   }
 
   componentWillMount() {
     TalkAPI.fetchTalks()
-    .then(response => this.setState({
-      isEmpty: response.length !== 0,
+    .then(response =>
+    // console.log(response)
+    this.setState({
       isLoading: false,
+      isEmpty: response.length !== 0,
       talks: response
-     }))
+     })
+    )
   }
 
   renderContent() {
@@ -62,3 +67,11 @@ export class TalksCalendarPresenter extends React.Component<Props, State> {
     )
   }
 }
+
+// const mapStateToProps = (state) => ({
+//   isLoading: state.talks.isLoading,
+//   isEmpty: state.talks.data.length !== 0,
+//   talks: state.talks.data
+// })
+
+// export default connect(mapStateToProps)(TalkView)
