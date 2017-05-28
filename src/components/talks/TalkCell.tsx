@@ -5,8 +5,7 @@ import TalkDetail from './TalkDetail'
 import * as Colors from '../../constants/style/colors'
 import * as Padding from '../../constants/style/padding'
 
-import Talk from '../../models/fakeTalk'
-// import Speaker from '../../models/speaker'
+import Talk from '../../models/talk'
 
 interface Props extends React.Props<View> {
   talk: Talk
@@ -26,7 +25,7 @@ export default class TalkCell extends React.Component<Props, {}> {
   render() {
     return (
       <View style={styles.container}>
-        <SpeakerView speaker={this.props.talk}/>
+        <SpeakerView speaker={this.props.talk.speaker}/>
         <TalkDetail talk ={this.props.talk}/>
       </View>
   )

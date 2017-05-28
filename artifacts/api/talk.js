@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { api } from '../constants/api';
-import Talk from '../models/fakeTalk';
+import Talk from '../models/talk';
+import talks from '../mock/talks.json';
 export function fetchTalks() {
     return axios.get(api.talks())
         .then(response => response.data)
-        .then((json) => json.map((response) => Talk.fromJson(response)));
+        .then((_) => talks.map((response) => Talk.fromJson(response)));
 }
 //# sourceMappingURL=talk.js.map

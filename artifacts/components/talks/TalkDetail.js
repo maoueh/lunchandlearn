@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
+import moment from 'moment';
 import Button from './../reusable/Button';
 import * as Colors from '../../constants/style/colors';
 import * as Padding from '../../constants/style/padding';
@@ -31,7 +32,7 @@ export default class TalkDetail extends React.Component {
     render() {
         return (React.createElement(View, { style: styles.container },
             React.createElement(Text, { style: styles.title }, this.props.talk.title),
-            React.createElement(Text, { style: styles.date }, this.props.talk.date),
+            React.createElement(Text, { style: styles.date }, moment(this.props.talk.date).format('LT')),
             React.createElement(Button, { onButtonTap: this.onButtonTap, isButtonActive: this.state.isUserAttending })));
     }
 }

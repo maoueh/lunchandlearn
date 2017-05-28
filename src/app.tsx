@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import { TalksCalendarPresenter } from './screens/TalksCalendarPresenter'
+import TalksCalendarPresenter from './screens/TalksCalendarPresenter'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'

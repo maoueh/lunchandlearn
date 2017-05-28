@@ -2,6 +2,7 @@ import objectMapper from 'object-mapper';
 const mapping = {
     id: 'id',
     name: 'name',
+    nickname: 'nickname',
     email: 'email',
     picture: 'picture',
     team: 'team',
@@ -14,6 +15,7 @@ export default class User {
         this.params = params;
         this.id = params.id;
         this.name = params.name;
+        this.nickname = params.nickname;
         this.email = params.email;
         this.picture = params.picture;
         this.position = params.position;

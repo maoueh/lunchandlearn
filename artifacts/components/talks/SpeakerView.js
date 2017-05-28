@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
 export default class SpeakerView extends React.Component {
     render() {
         return (React.createElement(View, { style: styles.container },
-            React.createElement(Image, { style: styles.image, source: { uri: this.props.speaker.speakerPhoto } }),
-            React.createElement(Text, { style: styles.text }, this.props.speaker.speaker)));
+            React.createElement(Image, { style: styles.image, source: { uri: this.props.speaker.picture } }),
+            React.createElement(Text, { style: styles.text }, this.props.speaker.nickname)));
     }
 }
 //# sourceMappingURL=SpeakerView.js.map

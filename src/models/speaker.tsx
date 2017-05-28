@@ -5,6 +5,7 @@ import Talk from './talk'
 const mapping = {
   id: 'id',
   name: 'name',
+  nickname: 'nickname',
   email: 'email',
   picture: 'picture',
   team: 'team',

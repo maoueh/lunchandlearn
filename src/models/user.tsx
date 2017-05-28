@@ -4,6 +4,7 @@ import Talk from './talk'
 const mapping = {
   id: 'id',
   name: 'name',
+  nickname: 'nickname',
   email: 'email',
   picture: 'picture',
   team: 'team',
@@ -15,6 +16,7 @@ const mapping = {
 export default class User {
   id: string
   name: string
+  nickname: string
   email: string
   picture: string
   team: string
@@ -33,6 +35,7 @@ export default class User {
   constructor(public params) {
     this.id = params.id
     this.name = params.name
+    this.nickname = params.nickname
     this.email = params.email
     this.picture = params.picture
     this.position = params.position

@@ -1,40 +1,56 @@
 import React from 'react'
-import { ListView, View, TouchableOpacity } from 'react-native'
-import Talk from './../../models/fakeTalk'
+import { ListView, SectionList, View, TouchableOpacity } from 'react-native'
+import _ from 'lodash'
+import Talk from './../../models/talk'
 import TalkCell from './TalkCell'
 import Cell from './Cell'
+import DateListHeader from './DateListHeader'
 
 interface Props extends React.Props<View> {
   talks: Talk[]
 }
 
-
 export default class TalkView extends React.Component<Props, {}> {
 
-  dataSource: any
+  dataSource = []
+
+  splitTalksByDate(talks: Talk[]) {
+    return grouped = _.transform(talks, function(result, talk) {
+      (result[talk.date] || (result[talk.date] = [])).push(talk)
+    }, {})
+  }
 
   componentWillMount() {
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    })
-    this.dataSource = ds.cloneWithRows(this.props.talks)
+    this.dataSource = this.splitTalksByDate(this.props.talks)
   }
 
   render() {
     return (
-      <ListView
+      <SectionList
+        renderItem={this.createTalkItem}
+        renderSectionHeader={this.renderHeader}
+        sections ={this.dataSource}
+        keyExtractor ={ (talk: Talk) => talk.id }
+        />
+      {/*<ListView
         dataSource={this.dataSource}
-        renderRow={(talk: Talk) => this.createTalkList(talk)} />
+        renderRow={(talk: Talk) => this.createTalkList(talk)} />*/}
     )
   }
 
-  createTalkList(talk: Talk) {
+  createTalkItem(talk: Talk) {
     return (
       <TouchableOpacity key={talk.title}>
         <Cell>
           <TalkCell talk={talk} />
         </Cell>
       </TouchableOpacity>
+    )
+  }
+
+  createHeader(date: string) {
+    return (
+      <DateListHeader date={date} />
     )
   }
 }

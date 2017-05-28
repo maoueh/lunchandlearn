@@ -3,11 +3,10 @@ import { View, Image, Text, StyleSheet } from 'react-native'
 import * as Colors from '../../constants/style/colors'
 import * as Padding from '../../constants/style/padding'
 
-// import Speaker from '../../models/speaker'
-import Talk from '../../models/fakeTalk'
+import Speaker from '../../models/speaker'
 
 interface Props extends React.Props<View> {
-  speaker: Talk
+  speaker: Speaker
 }
 
 interface State {}
@@ -34,10 +33,10 @@ export default class SpeakerView extends React.Component<Props, State> {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={{uri: this.props.speaker.speakerPhoto}}/>
+          source={{uri: this.props.speaker.picture}}/>
 
         <Text style={styles.text}>
-          {this.props.speaker.speaker}
+          {this.props.speaker.nickname}
         </Text>
       </View>
     )

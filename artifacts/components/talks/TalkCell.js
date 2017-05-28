@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 export default class TalkCell extends React.Component {
     render() {
         return (React.createElement(View, { style: styles.container },
-            React.createElement(SpeakerView, { speaker: this.props.talk }),
+            React.createElement(SpeakerView, { speaker: this.props.talk.speaker }),
             React.createElement(TalkDetail, { talk: this.props.talk })));
     }
 }

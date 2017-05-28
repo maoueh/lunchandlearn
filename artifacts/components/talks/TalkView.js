@@ -1,21 +1,34 @@
 import React from 'react';
-import { ListView, TouchableOpacity } from 'react-native';
+import { SectionList, TouchableOpacity } from 'react-native';
+import _ from 'lodash';
 import TalkCell from './TalkCell';
 import Cell from './Cell';
+import DateListHeader from './DateListHeader';
 export default class TalkView extends React.Component {
+    constructor() {
+        super(...arguments);
+        this.dataSource = [];
+    }
+    splitTalksByDate(talks) {
+        return grouped = _.transform(talks, function (result, talk) {
+            (result[talk.date] || (result[talk.date] = [])).push(talk);
+        }, {});
+    }
     componentWillMount() {
-        const ds = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 !== r2
-        });
-        this.dataSource = ds.cloneWithRows(this.props.talks);
+        this.dataSource = this.splitTalksByDate(this.props.talks);
     }
     render() {
-        return (React.createElement(ListView, { dataSource: this.dataSource, renderRow: (talk) => this.createTalkList(talk) }));
+        return (React.createElement(SectionList, { renderItem: this.createTalkItem, renderSectionHeader: this.renderHeader, sections: this.dataSource, keyExtractor: (talk) => talk.id }));
+        {
+        }
     }
-    createTalkList(talk) {
+    createTalkItem(talk) {
         return (React.createElement(TouchableOpacity, { key: talk.title },
             React.createElement(Cell, null,
                 React.createElement(TalkCell, { talk: talk }))));
+    }
+    createHeader(date) {
+        return (React.createElement(DateListHeader, { date: date }));
     }
 }
 //# sourceMappingURL=TalkView.js.map
