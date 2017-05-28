@@ -1,0 +1,39 @@
+{
+  "talks": [
+    {
+      "id": "1",
+      "title": "Introduction to NSOperations",
+      "date": "03/06/2017T14:30",
+      "speaker": "12345",
+      "attendees": ["12345", "12346", "12347"]
+    },
+    {
+      "id": "2",
+      "title": "Introduction to NSOperations",
+      "date": "15/06/2017T14:30",
+      "speaker": "12345",
+      "attendees": []
+    },
+    {
+      "id": "3",
+      "title": "Introduction to NSOperations",
+      "date": "19/06/2017T14:30",
+      "speaker": "12346",
+      "attendees": []
+    },
+    {
+      "id": "4",
+      "title": "Introduction to NSOperations",
+      "date": "15/06/2017T14:30",
+      "speaker": "12345",
+      "attendees": []
+    },
+    {
+      "id": "5",
+      "title": "Introduction to NSOperations",
+      "date": "15/06/2017T14:30",
+      "speaker": "12345",
+      "attendees": []
+    }
+  ]
+}

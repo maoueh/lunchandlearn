@@ -1,0 +1,64 @@
+{
+  "speakers": [
+    {
+      "id": "12345",
+      "name": "Rajinder Ramgarrhia",
+      "email": "rramgarhia@samsao.co",
+      "slack": "@rramgarhia",
+      "team": "iOS",
+      "position": "Lead iOS Developer",
+      "image": "",
+      "talks": [1, 2, 3]
+    },
+    {
+      "id": "12346",
+      "name": "Kenza Iraki",
+      "email": "kiraki@samsao.co",
+      "slack": "@kenza",
+      "team": "iOS",
+      "position": "iOS Developer",
+      "image": "",
+      "talks": [4]
+    },
+    {
+      "id": "12347",
+      "name": "Shanhe Nie",
+      "email": "snie@samsao.co",
+      "slack": "@snie",
+      "team": "iOS",
+      "position": "iOS Developer",
+      "image": "",
+      "talks": [5]
+    },
+    {
+      "id": "12348",
+      "name": "Nicolas Martino",
+      "email": "nmartino@samsao.co",
+      "slack": "@nicolas",
+      "team": "Android",
+      "position": "Android Developer",
+      "image": "",
+      "talks": [8]
+    },
+    {
+      "id": "12349",
+      "name": "Matthieu Vachon",
+      "email": "mvachon@samsao.co",
+      "slack": "@mvachon",
+      "team": "Android",
+      "position": "Lead Android Developer",
+      "image": "",
+      "talks": [9]
+    },
+    {
+      "id": "12310",
+      "name": "Gabriel Cartier",
+      "email": "gcartier@samsao.co",
+      "slack": "@gab",
+      "team": "Executive",
+      "position": "CTO",
+      "image": "",
+      "talks": [7]
+    }
+  ]
+}

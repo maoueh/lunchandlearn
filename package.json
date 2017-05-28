@@ -1,0 +1,60 @@
+{
+  "name": "setup",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "watch": "npm run build -- -w",
+    "rn-ios": "npm run build && concurrently -r 'npm run watch' 'react-native run-ios'",
+    "rn-android": "npm run build && concurrently -r 'npm run watch' 'react-native run-android'",
+    "tsc": "tsc",
+    "clean": "rimraf artifacts",
+    "build": "npm run clean && npm run tsc --",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest --coverage",
+    "lint": "tslint src/**/*.ts"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "firebase": "^4.0.0",
+    "lodash": "^4.17.4",
+    "object-mapper": "^3.0.1",
+    "prop-types": "^15.5.10",
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.0",
+    "react-native-google-signin": "^0.10.0",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^19.2.3",
+    "@types/react": "^15.0.25",
+    "@types/react-native": "^0.44.3",
+    "babel-jest": "20.0.3",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-preset-react-native": "1.9.2",
+    "concurrently": "^3.4.0",
+    "eslint-config-rallycoding": "^3.2.0",
+    "flow-bin": "^0.46.0",
+    "jest": "20.0.4",
+    "json-loader": "^0.5.4",
+    "react-test-renderer": "16.0.0-alpha.6",
+    "rimraf": "^2.6.1",
+    "tslint": "^4.5.1",
+    "typescript": "^2.3.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "testRegex": "artifacts/.+\\.(test|spec).js$",
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text-summary",
+      "html"
+    ],
+    "collectCoverageFrom": [
+      "artifacts/**/*.js",
+      "!artifacts/**/*.spec.js",
+      "!artifacts/**/*.index.js"
+    ]
+  }
+}
