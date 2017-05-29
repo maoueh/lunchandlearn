@@ -8,12 +8,8 @@ import Talk from '../models/talk'
 import TalkView from '../components/talks/TalkView'
 import { NavigationBar, EmptyView, Loader } from '../components/reusable'
 
-interface Actions {
-  fetchTalks: PropTypes.func
-}
-
 interface Props extends React.Props<View> {
-  actions: Actions,
+  actions: { fetchTalks: PropTypes.func }
   isLoading: boolean,
   isEmpty: boolean,
   talks: Talk[]
