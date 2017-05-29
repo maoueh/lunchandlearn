@@ -4,14 +4,12 @@ const mapping = {
     title: 'title',
     speaker: 'speaker',
     date: 'date',
+    description: 'description',
     attendees: 'attendees'
 };
 export default class Talk {
     static fromJson(json) {
         return new Talk(objectMapper(json, mapping));
-    }
-    static init(id, title, speaker, date, attendees) {
-        return new Talk([id, title, speaker, date, attendees]);
     }
     toJson() {
         return objectMapper(this, mapping);
@@ -21,6 +19,7 @@ export default class Talk {
         this.title = params.title;
         this.speaker = params.speaker;
         this.date = params.date;
+        this.description = params.description;
         this.attendees = params.attendees;
     }
 }

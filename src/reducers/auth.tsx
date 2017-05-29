@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import User from '../models/user'
-import * as Action from '../constants/actions/session_fetcher'
+import * as Action from '../constants/actions/session'
 
 const initialState = {
   authenticated: false,

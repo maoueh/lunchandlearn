@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-// import { connect } from 'react-redux'
-// import { bindActionCreators } from 'redux'
-import * as TalkAPI from './../api/talk';
-import TalkView from './../components/talks/TalkView';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchTalks } from '../actions';
+import TalkView from '../components/talks/TalkView';
 import { NavigationBar, EmptyView, Loader } from '../components/reusable';
 const styles = StyleSheet.create({
     container: {
@@ -11,45 +11,43 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     }
 });
-export default class TalksCalendarPresenter extends React.Component {
-    constructor(props) {
-        super(props);
+class TalksCalendarPresenter extends React.Component {
+    constructor() {
+        super(...arguments);
         this.title = 'Lunch and Learn';
-        this.state = {
-            isLoading: true,
-            isEmpty: false,
-            talks: []
-        };
     }
     componentWillMount() {
-        TalkAPI.fetchTalks()
-            .then(response => 
-        // console.log(response)
-        this.setState({
-            isLoading: false,
-            isEmpty: response.length !== 0,
-            talks: response
-        }));
+        // this.props = {
+        //   actions: {
+        //     fetchTalks: fetchTalks
+        //   },
+        //   isLoading: false,
+        //   isEmpty: false,
+        //   talks: []
+        // }
+        this.props.actions.fetchTalks();
     }
     renderContent() {
-        if (this.state.isLoading)
+        if (this.props.isLoading)
             return undefined;
-        return this.state.talks.length === 0 ?
-            React.createElement(EmptyView, { text: 'Sorry, there are no upcoming talks' })
-            :
-                React.createElement(TalkView, { talks: this.state.talks });
+        return this.props.talks.length === 0
+            ? React.createElement(EmptyView, { text: 'Sorry, there are no upcoming talks' })
+            : React.createElement(TalkView, { talks: this.props.talks });
     }
     render() {
         return (React.createElement(View, { style: styles.container },
             React.createElement(NavigationBar, { name: this.title }),
-            React.createElement(Loader, { display: this.state.isLoading }),
+            React.createElement(Loader, { display: this.props.isLoading }),
             this.renderContent()));
     }
 }
-// const mapStateToProps = (state) => ({
-//   isLoading: state.talks.isLoading,
-//   isEmpty: state.talks.data.length !== 0,
-//   talks: state.talks.data
-// })
-// export default connect(mapStateToProps)(TalkView) 
+const mapStateToProps = (state) => ({
+    talks: state.talks.data,
+    isEmpty: state.talks.length === 0,
+    isLoading: state.talks.isLoading
+});
+const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators(fetchTalks, dispatch)
+});
+export default connect(mapStateToProps, mapDispatchToProps)(TalksCalendarPresenter);
 //# sourceMappingURL=TalksCalendarPresenter.js.map

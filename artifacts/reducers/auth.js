@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import * as Action from '../constants/actions/session_fetcher';
+import * as Action from '../constants/actions/session';
 const initialState = {
     authenticated: false,
     userId: undefined,

@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "watch": "npm run build -- -w",
-    "rn-ios": "npm run build && concurrently -r 'npm run watch' 'react-native run-ios'",
-    "rn-android": "npm run build && concurrently -r 'npm run watch' 'react-native run-android'",
+    "ios": "npm run build && concurrently -r 'npm run watch' 'react-native run-ios'",
+    "android": "npm run build && concurrently -r 'npm run watch' 'react-native run-android'",
     "tsc": "tsc",
     "clean": "rimraf artifacts",
     "build": "npm run clean && npm run tsc --",

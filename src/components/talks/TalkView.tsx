@@ -1,14 +1,14 @@
 import React from 'react'
-import { ListView, View, TouchableOpacity } from 'react-native'
+import { ListView, View } from 'react-native'
+import { connect } from 'react-redux'
 import Talk from './../../models/talk'
 import TalkCell from './TalkCell'
-import Cell from './Cell'
 
 interface Props extends React.Props<View> {
   talks: Talk[]
 }
 
-export default class TalkView extends React.Component<Props, {}> {
+class TalkView extends React.Component<Props, {}> {
 
   dataSource: any
 
@@ -28,12 +28,8 @@ export default class TalkView extends React.Component<Props, {}> {
   }
 
   createTalkList(talk: Talk) {
-    return (
-      <TouchableOpacity key={talk.title}>
-        <Cell>
-          <TalkCell talk={talk} />
-        </Cell>
-      </TouchableOpacity>
-    )
+    return <TalkCell talk={talk}/>
   }
 }
+
+export default connect()(TalkView)

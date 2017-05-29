@@ -21,9 +21,8 @@ const styles = StyleSheet.create({
 })
 
 interface Props extends React.Props<View> {}
-interface State {}
 
-export default class Cell extends React.Component<Props, State> {
+export default class Cell extends React.Component<Props, {}> {
   render() {
       return <View style={styles.container}>
         {this.props.children}
