@@ -15,12 +15,13 @@ const styles = StyleSheet.create({
         marginLeft: Padding.MEDIUM,
         marginRight: Padding.MEDIUM,
         marginTop: Padding.SMALL,
-        marginBottom: Padding.EXTRA_SMALL
+        marginBottom: Padding.EXTRA_SMALL,
+        backgroundColor: Colors.WHITE
     }
 });
 export default class Cell extends React.Component {
     render() {
-        return React.createElement(View, { style: styles.container }, this.props.children);
+        return (React.createElement(View, { style: styles.container }, this.props.children));
     }
 }
 //# sourceMappingURL=Cell.js.map

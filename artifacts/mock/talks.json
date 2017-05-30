@@ -1,8 +1,8 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "title": "NSOperations with Raj",
-    "date": "2017-05-29 14:30",
+    "date": "2017-06-20 14:30",
     "description": "A basic introduction to NSOperation and NSOperationQueue, their common use cases and intricacies.",
     "speaker": {
       "id": 1234,
@@ -14,9 +14,9 @@
     }
   },
   {
-    "id": 2,
+    "id": "2",
     "title": "How to work with widgets",
-    "date": "2017-05-29 14:30",
+    "date": "2017-06-21 13:30",
     "description": "A basic introduction to NSOperation and NSOperationQueue, their common use cases and intricacies.",
     "speaker": {
       "id": 1234,
@@ -28,9 +28,9 @@
     }
   },
   {
-    "id": 3,
+    "id": "3",
     "title": "NSOperations with Raj",
-    "date": "2017-05-29 14:30",
+    "date": "2017-06-20 14:30",
     "description": "A basic introduction to NSOperation and NSOperationQueue, their common use cases and intricacies.",
     "speaker": {
       "id": 1234,
@@ -42,9 +42,9 @@
     }
   },
   {
-    "id": 4,
+    "id": "4",
     "title": "NSOperations with Raj",
-    "date": "2017-05-29 14:30",
+    "date": "2017-06-20 14:30",
     "description": "A basic introduction to NSOperation and NSOperationQueue, their common use cases and intricacies.",
     "speaker": {
       "id": 1234,
@@ -56,9 +56,9 @@
     }
   },
   {
-    "id": 5,
+    "id": "5",
     "title": "NSOperations with Raj",
-    "date": "2017-05-29 14:30",
+    "date": "2017-06-20 14:30",
     "description": "A basic introduction to NSOperation and NSOperationQueue, their common use cases and intricacies.",
     "speaker": {
       "id": 1234,

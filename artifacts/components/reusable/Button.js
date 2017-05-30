@@ -23,7 +23,7 @@ export default class Button extends React.Component {
     }
     render() {
         return (React.createElement(TouchableOpacity, { onPress: this.props.onButtonTap, style: this.styles.container },
-            React.createElement(Text, { style: styles.text }, "Open Slides")));
+            React.createElement(Text, { style: styles.text }, this.props.text)));
     }
 }
 //# sourceMappingURL=Button.js.map

@@ -2,14 +2,13 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import PropTypes from 'prop-types'
-import { fetchTalks } from '../actions'
+import { fetchTalks } from '../reducers/talk_fetch'
 import Talk from '../models/talk'
 import TalkView from '../components/talks/TalkView'
 import { NavigationBar, EmptyView, Loader } from '../components/reusable'
 
 interface Props extends React.Props<View> {
-  actions: { fetchTalks: PropTypes.func }
+  actions: { fetchTalks: () => Talk[] }
   isLoading: boolean,
   isEmpty: boolean,
   talks: Talk[]
@@ -27,14 +26,6 @@ class TalksCalendarPresenter extends React.Component<Props, {}> {
   title = 'Lunch and Learn'
 
   componentWillMount() {
-    // this.props = {
-    //   actions: {
-    //     fetchTalks: fetchTalks
-    //   },
-    //   isLoading: false,
-    //   isEmpty: false,
-    //   talks: []
-    // }
     this.props.actions.fetchTalks()
   }
 
@@ -63,7 +54,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(fetchTalks, dispatch)
+  actions: bindActionCreators({ fetchTalks }, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TalksCalendarPresenter)

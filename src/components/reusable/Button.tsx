@@ -4,6 +4,7 @@ import * as Colors from '../../constants/style/colors'
 import * as Padding from '../../constants/style/padding'
 
 interface Props extends React.Props<View> {
+  text: string
   onButtonTap: () => void
   isButtonActive: boolean
 }
@@ -32,7 +33,7 @@ export default class Button extends React.Component<Props, {}> {
       <TouchableOpacity
         onPress={this.props.onButtonTap}
         style={this.styles.container}>
-        <Text style={styles.text}>Open Slides</Text>
+        <Text style={styles.text}>{this.props.text}</Text>
       </TouchableOpacity>
     )
   }

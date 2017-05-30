@@ -38,7 +38,6 @@ export default class TalkDetail extends React.Component<Props, State> {
   }
 
   onButtonTap = () => {
-    // console.log(this.props.talk.slidesURL)
     // Linking.openURL(this.props.talk.slidesURL)
     this.setState({isUserAttending: true})
   }
@@ -55,6 +54,7 @@ export default class TalkDetail extends React.Component<Props, State> {
         </Text>
 
         <Button
+        text='Going'
         onButtonTap={this.onButtonTap}
         isButtonActive={this.state.isUserAttending}/>
       </View>

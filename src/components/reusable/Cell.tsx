@@ -16,16 +16,21 @@ const styles = StyleSheet.create({
     marginLeft: Padding.MEDIUM,
     marginRight: Padding.MEDIUM,
     marginTop: Padding.SMALL,
-    marginBottom: Padding.EXTRA_SMALL
+    marginBottom: Padding.EXTRA_SMALL,
+    backgroundColor: Colors.WHITE
   }
 })
 
-interface Props extends React.Props<View> {}
+interface Props extends React.Props<View> {
+  style?: {}
+}
 
 export default class Cell extends React.Component<Props, {}> {
   render() {
-      return <View style={styles.container}>
-        {this.props.children}
-      </View>
+      return (
+        <View style={styles.container}>
+          {this.props.children}
+        </View>
+      )
   }
 }

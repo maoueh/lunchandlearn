@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import AuthenticationReducer from './auth';
-import TalksReducer from './talks';
+import TalksReducer from './talk_fetch';
 import TalkSelectionReducer from './talk_selection';
 export default combineReducers({
     auth: AuthenticationReducer,
     talks: TalksReducer,
-    selectedTalkID: TalkSelectionReducer
+    selectedTalk: TalkSelectionReducer
 });
 //# sourceMappingURL=index.js.map

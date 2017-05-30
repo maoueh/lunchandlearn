@@ -21,7 +21,6 @@ export default class TalkDetail extends React.Component {
     constructor(props) {
         super(props);
         this.onButtonTap = () => {
-            // console.log(this.props.talk.slidesURL)
             // Linking.openURL(this.props.talk.slidesURL)
             this.setState({ isUserAttending: true });
         };
@@ -33,7 +32,7 @@ export default class TalkDetail extends React.Component {
         return (React.createElement(View, { style: styles.container },
             React.createElement(Text, { style: styles.title }, this.props.talk.title),
             React.createElement(Text, { style: styles.date }, moment(this.props.talk.date).format('LT')),
-            React.createElement(Button, { onButtonTap: this.onButtonTap, isButtonActive: this.state.isUserAttending })));
+            React.createElement(Button, { text: 'Going', onButtonTap: this.onButtonTap, isButtonActive: this.state.isUserAttending })));
     }
 }
 //# sourceMappingURL=TalkDetail.js.map

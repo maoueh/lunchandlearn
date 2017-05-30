@@ -1,14 +1,20 @@
 import _ from 'lodash';
 import * as Action from '../constants/actions/talk';
 const initialState = {
-    selectedTalkId: null
+    id: undefined
 };
 export default function createReducer(state = initialState, action) {
-    console.log(action);
     switch (action.type) {
         case Action.SELECT_TALK:
-            return _.assign({}, state, { selectedTalkID: action.data.id });
+            if (state.id === action.data)
+                return _.assign({}, state, { id: undefined });
+            return _.assign({}, state, { id: action.data });
         default: return state;
     }
+}
+export function selectTalk(id) {
+    return (dispatch) => {
+        dispatch({ type: Action.SELECT_TALK, data: id });
+    };
 }
 //# sourceMappingURL=talk_selection.js.map

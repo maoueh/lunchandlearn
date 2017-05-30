@@ -12,18 +12,24 @@ interface Props extends React.Props<View> {
 
 interface State {}
 
+const imageWidth = 70
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.TRANSPARENT,
     alignItems: 'center'
   },
   image: {
-    width: 70,
-    height: 70,
-    borderRadius: 35
+    width: imageWidth,
+    height: imageWidth,
+    borderRadius: imageWidth / 2
   },
-  text: {
+  name: {
     paddingTop: Padding.SMALL,
+    fontSize: 12
+  },
+  title: {
+    paddingTop: Padding.SMALL,
+    paddingBottom: Padding.SMALL,
     fontSize: 12
   }
 })
@@ -32,7 +38,7 @@ export default class SpeakerView extends React.Component<Props, State> {
   getDetail() {
     const { speaker } = this.props
     if (this.props.hideDetail) return undefined
-    return <Text style={styles.text}>{speaker.position}</Text>
+    return <Text style={styles.title}>{speaker.position}</Text>
   }
   render() {
     return (
@@ -41,7 +47,7 @@ export default class SpeakerView extends React.Component<Props, State> {
           style={styles.image}
           source={{uri: this.props.speaker.picture}}/>
 
-        <Text style={styles.text}>
+        <Text style={styles.name}>
           {this.props.speaker.nickname}
         </Text>
         {this.getDetail()}

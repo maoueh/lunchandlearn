@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchTalks } from '../actions';
+import { fetchTalks } from '../reducers/talk_fetch';
 import TalkView from '../components/talks/TalkView';
 import { NavigationBar, EmptyView, Loader } from '../components/reusable';
 const styles = StyleSheet.create({
@@ -17,14 +17,6 @@ class TalksCalendarPresenter extends React.Component {
         this.title = 'Lunch and Learn';
     }
     componentWillMount() {
-        // this.props = {
-        //   actions: {
-        //     fetchTalks: fetchTalks
-        //   },
-        //   isLoading: false,
-        //   isEmpty: false,
-        //   talks: []
-        // }
         this.props.actions.fetchTalks();
     }
     renderContent() {
@@ -47,7 +39,7 @@ const mapStateToProps = (state) => ({
     isLoading: state.talks.isLoading
 });
 const mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators(fetchTalks, dispatch)
+    actions: bindActionCreators({ fetchTalks }, dispatch)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(TalksCalendarPresenter);
 //# sourceMappingURL=TalksCalendarPresenter.js.map

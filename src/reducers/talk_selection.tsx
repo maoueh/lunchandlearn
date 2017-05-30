@@ -1,21 +1,26 @@
 import _ from 'lodash'
 import * as Action from '../constants/actions/talk'
-import Talk from '../models/talk'
 
 interface State {
-  selectedTalkId: number
+  id: string
 }
 const initialState: State = {
-  selectedTalkId: null
+  id: undefined
 }
 
 export default function createReducer(
   state: State = initialState,
-  action: { type: string, data: Talk }) {
-  console.log(action)
+  action: { type: string, data: string }) {
   switch (action.type) {
     case Action.SELECT_TALK:
-    return _.assign({}, state, { selectedTalkID: action.data.id })
+    if (state.id === action.data) return _.assign({}, state, { id: undefined })
+    return _.assign({}, state, { id: action.data })
     default: return state
+  }
+}
+
+export function selectTalk(id: string) {
+  return (dispatch) => {
+    dispatch({ type: Action.SELECT_TALK, data: id })
   }
 }

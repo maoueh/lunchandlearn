@@ -1,4 +1,5 @@
 import React from 'react';
+// import LoginPresenter from './screens/LoginPresenter'
 import TalksCalendarPresenter from './screens/TalksCalendarPresenter';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
