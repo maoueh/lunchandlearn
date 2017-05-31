@@ -1,6 +1,5 @@
 import React from 'react';
-// import LoginPresenter from './screens/LoginPresenter'
-import TalksCalendarPresenter from './screens/TalksCalendarPresenter';
+import { Tabs } from './navigation/router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
@@ -12,7 +11,7 @@ const store = createStoreWithMiddleware(reducers);
 export class App extends React.Component {
     render() {
         return (React.createElement(Provider, { store: store },
-            React.createElement(TalksCalendarPresenter, null)));
+            React.createElement(Tabs, null)));
     }
 }
 //# sourceMappingURL=app.js.map

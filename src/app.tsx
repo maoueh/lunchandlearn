@@ -1,7 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-// import LoginPresenter from './screens/LoginPresenter'
-import TalksCalendarPresenter from './screens/TalksCalendarPresenter'
+import { Tabs } from './navigation/router'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
@@ -16,7 +15,7 @@ export class App extends React.Component<React.Props<View>, {}> {
   render() {
     return (
       <Provider store={store}>
-        <TalksCalendarPresenter />
+        <Tabs />
       </Provider>
     )
   }
